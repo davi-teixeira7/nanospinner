@@ -1,4 +1,28 @@
-// nanospinner - a minimal terminal spinner for Rust CLI applications
+//! A minimal, zero-dependency terminal spinner for Rust CLI applications.
+//!
+//! `nanospinner` provides a lightweight animated spinner for giving users
+//! feedback during long-running CLI operations. It runs the animation on a
+//! background thread so your main logic stays unblocked.
+//!
+//! # Quick start
+//!
+//! ```no_run
+//! use nanospinner::Spinner;
+//! use std::thread;
+//! use std::time::Duration;
+//!
+//! let mut handle = Spinner::new("Loading...").start();
+//! thread::sleep(Duration::from_secs(2));
+//! handle.success();
+//! ```
+//!
+//! # Features
+//!
+//! - Zero dependencies (only `std`)
+//! - Braille-dot animation that stays on a single line
+//! - Update the message while spinning via [`SpinnerHandle::update`]
+//! - Finish with [`SpinnerHandle::success`] (✔ green) or [`SpinnerHandle::fail`] (✖ red)
+//! - Pluggable writer for testing or custom output targets
 
 use std::io;
 use std::sync::atomic::{AtomicBool, Ordering};
