@@ -22,6 +22,7 @@ Most Rust spinner crates (like `indicatif` or `spinoff`) are feature-rich but pu
 - Update the message while the spinner is running
 - Custom writer support (stdout, stderr, or any `io::Write + Send`)
 - Automatic cleanup via `Drop` — no thread leaks if you forget to stop
+- Automatic TTY detection — ANSI codes and animation are skipped when output is piped or redirected
 
 ## Quick Start
 
@@ -92,6 +93,21 @@ handle.success();
 let mut handle = Spinner::new("Working...").start();
 thread::sleep(Duration::from_secs(1));
 handle.stop(); // clears the line, no symbol printed
+```
+
+### Piped / non-TTY output
+
+When stdout isn't a terminal (e.g. piped to a file or another program), `nanospinner` automatically skips the animation and ANSI color codes. The final result is printed as plain text:
+
+```bash
+$ my_tool | cat
+✔ Done!
+```
+
+No configuration needed — `Spinner::new()` detects this automatically. If you're using a custom writer and want to force TTY behavior, use `with_writer_tty`:
+
+```rust
+let handle = Spinner::with_writer_tty("Building...", my_writer, true).start();
 ```
 
 ## Comparison

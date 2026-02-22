@@ -35,3 +35,62 @@ fn test_spinner_success_output_contains_checkmark_and_message() {
     assert!(output.contains("✔"), "output should contain the ✔ symbol");
     assert!(output.contains("Loading..."), "output should contain the spinner message");
 }
+
+#[test]
+fn test_non_tty_output_is_plain_text() {
+    let inner = Arc::new(Mutex::new(Vec::<u8>::new()));
+    let writer = SharedBuffer(Arc::clone(&inner));
+
+    // with_writer defaults is_tty to false
+    let spinner = Spinner::with_writer("Deploying...", writer);
+    let handle = spinner.start();
+    thread::sleep(Duration::from_millis(200));
+    handle.success();
+
+    let output = String::from_utf8(inner.lock().unwrap().clone()).unwrap();
+
+    // No ANSI escape codes anywhere in the output
+    assert!(!output.contains("\x1b["), "non-TTY output must not contain ANSI escape codes");
+    // No carriage returns (spinner frame overwrites)
+    assert!(!output.contains('\r'), "non-TTY output must not contain carriage returns");
+    // No spinner frame characters
+    assert!(!output.contains('⠋'), "non-TTY output must not contain spinner frames");
+    // Just the clean final line
+    assert_eq!(output, "✔ Deploying...\n");
+}
+
+#[test]
+fn test_non_tty_fail_output_is_plain_text() {
+    let inner = Arc::new(Mutex::new(Vec::<u8>::new()));
+    let writer = SharedBuffer(Arc::clone(&inner));
+
+    let spinner = Spinner::with_writer("Building...", writer);
+    let handle = spinner.start();
+    thread::sleep(Duration::from_millis(200));
+    handle.fail_with("Build failed");
+
+    let output = String::from_utf8(inner.lock().unwrap().clone()).unwrap();
+    assert!(!output.contains("\x1b["), "non-TTY output must not contain ANSI escape codes");
+    assert_eq!(output, "✖ Build failed\n");
+}
+
+#[test]
+fn test_tty_mode_produces_ansi_and_animation() {
+    let inner = Arc::new(Mutex::new(Vec::<u8>::new()));
+    let writer = SharedBuffer(Arc::clone(&inner));
+
+    // Explicitly enable TTY mode
+    let spinner = Spinner::with_writer_tty("Compiling...", writer, true);
+    let handle = spinner.start();
+    thread::sleep(Duration::from_millis(200));
+    handle.success();
+
+    let output = String::from_utf8(inner.lock().unwrap().clone()).unwrap();
+
+    // Should contain ANSI color codes
+    assert!(output.contains("\x1b[32m"), "TTY output should contain green ANSI code");
+    assert!(output.contains("\x1b[0m"), "TTY output should contain reset ANSI code");
+    // Should contain spinner animation frames
+    assert!(output.contains('⠋'), "TTY output should contain spinner frames");
+    assert!(output.contains("✔"), "TTY output should contain ✔");
+}
