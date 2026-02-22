@@ -15,6 +15,18 @@ Most Rust spinner crates (like `indicatif` or `spinoff`) are feature-rich but pu
 - Simple, ergonomic API
 - Thread-safe with clean shutdown
 
+## Comparison
+
+| Crate | Dependencies | Lines of Code | Clean Build Time | Customizable Frames | Progress Bars |
+|-------|-------------|---------------|------------------|---------------------|---------------|
+| `nanospinner` | 0 | ~200 | ~0.1s | Default Braille set | No |
+| `spinoff` | 3+ | ~1,000+ | ~1.2s | Yes (80+ sets) | No |
+| `indicatif` | 5+ | ~5,000+ | ~1.4s | Yes | Yes |
+
+Build times measured from a clean `cargo build --release` on macOS aarch64 (Apple Silicon). Your numbers may vary by platform.
+
+`nanospinner` is for when you want a spinner and nothing else.
+
 ## Features
 
 - Animated Braille dot spinner (`⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏`)
@@ -109,18 +121,6 @@ No configuration needed — `Spinner::new()` detects this automatically. If you'
 ```rust
 let handle = Spinner::with_writer_tty("Building...", my_writer, true).start();
 ```
-
-## Comparison
-
-| Crate | Dependencies | Lines of Code | Clean Build Time | Customizable Frames | Progress Bars |
-|-------|-------------|---------------|------------------|---------------------|---------------|
-| `nanospinner` | 0 | ~150 | ~0.3s | Default Braille set | No |
-| `spinoff` | 3+ | ~1,000+ | ~1.2s | Yes (80+ sets) | No |
-| `indicatif` | 5+ | ~5,000+ | ~1.4s | Yes | Yes |
-
-Build times measured from a clean `cargo build --release` on macOS aarch64 (Apple Silicon). Your numbers may vary by platform.
-
-`nanospinner` is for when you want a spinner and nothing else.
 
 ## Contributing
 
