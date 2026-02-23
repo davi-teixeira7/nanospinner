@@ -1,6 +1,6 @@
 # ⠋ nanospinner [![Build Status](https://github.com/anthonysgro/nanospinner/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/anthonysgro/nanospinner/actions) [![Crates.io](https://img.shields.io/crates/v/nanospinner)](https://crates.io/crates/nanospinner) [![Docs.rs](https://docs.rs/nanospinner/badge.svg)](https://docs.rs/nanospinner/latest/nanospinner/) [![License](https://img.shields.io/crates/l/nanospinner)](https://crates.io/crates/nanospinner) [![Coverage Status](https://coveralls.io/repos/github/anthonysgro/nanospinner/badge.svg?branch=main)](https://coveralls.io/github/anthonysgro/nanospinner?branch=main)
 
-A minimal, zero-dependency terminal spinner for Rust CLI applications.
+A minimal, zero-dependency terminal spinner for Rust applications.
 
 ![demo](demo.gif)
 
@@ -8,7 +8,7 @@ Inspired by the [nanospinner](https://github.com/usmanyunusov/nanospinner) npm p
 
 ## Nano Suite
 
-Part of the nano crate family — minimal, zero-dependency building blocks for CLI apps in Rust:
+Part of the nano crate family — minimal, zero-dependency building blocks for focused apps in Rust:
 
 - [nanocolor](https://github.com/anthonysgro/nanocolor) — terminal colors and styles
 - [nanospinner](https://github.com/anthonysgro/nanospinner) — terminal spinners
