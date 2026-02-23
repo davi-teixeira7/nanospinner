@@ -1,7 +1,4 @@
-# ⠋ nanospinner
-
-[![Crates.io](https://img.shields.io/crates/v/nanospinner)](https://crates.io/crates/nanospinner)
-[![Docs.rs](https://docs.rs/nanospinner/badge.svg)](https://docs.rs/nanospinner/latest/nanospinner/)
+# ⠋ nanospinner [![Build Status](https://github.com/anthonysgro/nanospinner/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/anthonysgro/nanospinner/actions) [![Crates.io](https://img.shields.io/crates/v/nanospinner)](https://crates.io/crates/nanospinner) [![Docs.rs](https://docs.rs/nanospinner/badge.svg)](https://docs.rs/nanospinner/latest/nanospinner/) [![License](https://img.shields.io/crates/l/nanospinner)](https://crates.io/crates/nanospinner) [![Coverage Status](https://coveralls.io/repos/github/anthonysgro/nanospinner/badge.svg?branch=main)](https://coveralls.io/github/anthonysgro/nanospinner?branch=main)
 
 A minimal, zero-dependency terminal spinner for Rust CLI applications.
 
