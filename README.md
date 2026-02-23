@@ -9,6 +9,16 @@ A minimal, zero-dependency terminal spinner for Rust CLI applications.
 
 Inspired by the [nanospinner](https://github.com/usmanyunusov/nanospinner) npm package, `nanospinner` gives you a lightweight animated spinner using only the Rust standard library — no heavy crates, no transitive dependencies, under 200 lines of code.
 
+## Nano Suite
+
+Part of the nano crate family — minimal, zero-dependency building blocks for CLI apps in Rust:
+
+- [nanocolor](https://github.com/anthonysgro/nanocolor) — terminal colors and styles
+- [nanospinner](https://github.com/anthonysgro/nanospinner) — terminal spinners
+- [nanoprogress](https://github.com/anthonysgro/nanoprogress) — progress bars
+- [nanologger](https://github.com/anthonysgro/nanologger) — minimal logger
+- [nanotime](https://github.com/anthonysgro/nanotime) — time utilities
+
 ## Motivation
 
 Most Rust spinner crates (like `indicatif` or `spinoff`) are feature-rich but pull in multiple dependencies, increasing compile times and binary size. If all you need is a simple spinner with a message, a success state, and a failure state, those crates are overkill.
@@ -43,11 +53,10 @@ Build times measured from a clean `cargo build --release` on macOS aarch64 (Appl
 
 ## Quick Start
 
-Add `nanospinner` to your `Cargo.toml`:
+Add `nanospinner` to your project:
 
-```toml
-[dependencies]
-nanospinner = "0.1.0"
+```bash
+cargo add nanospinner
 ```
 
 ```rust
