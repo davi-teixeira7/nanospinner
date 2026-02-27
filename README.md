@@ -4,13 +4,14 @@ A minimal, zero-dependency terminal spinner for Rust applications. Supports sing
 
 ![demo](demo.gif)
 
-Inspired by the [nanospinner](https://github.com/usmanyunusov/nanospinner) npm package, `nanospinner` gives you a lightweight animated spinner using only the Rust standard library — no heavy crates, no transitive dependencies, under 700 lines of code.
+Inspired by the Node.js [nanospinner](https://github.com/usmanyunusov/nanospinner) npm package, `nanospinner` gives you a lightweight animated spinner using only the Rust standard library — no heavy crates, no transitive dependencies, builds in .2 seconds.
 
 Part of the [nano](https://github.com/anthonysgro/nano) crate family — zero-dependency building blocks for Rust.
 
 ## Motivation
 
-Most Rust spinner crates (like `indicatif` or `spinoff`) are feature-rich but pull in multiple dependencies, increasing compile times and binary size. If all you need is a simple spinner with a message, a success state, and a failure state, those crates are overkill.
+Most Rust spinner crates sit at two extremes: lightweight but limited (`spinoff`), or feature-rich but heavy (`indicatif`). nanospinner sits in the middle: thread-safe handles, multi-spinner support, custom writers, and automatic TTY detection, all with zero dependencies and builds in under .2 seconds. If you need a spinner (not a progress bar), you probably don't need anything else.
+
 
 `nanospinner` solves this by providing the essentials and nothing more:
 
@@ -28,6 +29,7 @@ Most Rust spinner crates (like `indicatif` or `spinoff`) are feature-rich but pu
 | Multiple Spinners | Yes | No | Yes |
 | Auto TTY Detection | Yes | No | Yes |
 | Custom Writer | Yes (io::Write) | Stderr only | Yes (custom trait) |
+| Thread-Safe Handles | Yes (`Send`) | No | Yes (`Send + Sync`) |
 | Progress Bars | No | No | Yes |
 | Async Support | No | No | Optional (`tokio` feature) |
 
