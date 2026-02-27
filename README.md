@@ -1,4 +1,13 @@
-# ⠋ nanospinner [![Build Status](https://github.com/anthonysgro/nanospinner/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/anthonysgro/nanospinner/actions) [![Crates.io](https://img.shields.io/crates/v/nanospinner)](https://crates.io/crates/nanospinner) [![Docs.rs](https://docs.rs/nanospinner/badge.svg)](https://docs.rs/nanospinner/latest/nanospinner/) [![License](https://img.shields.io/crates/l/nanospinner)](https://crates.io/crates/nanospinner) [![Coverage Status](https://coveralls.io/repos/github/anthonysgro/nanospinner/badge.svg?branch=main)](https://coveralls.io/github/anthonysgro/nanospinner?branch=main)
+<h1 align="center">⠋ nanospinner</h1>
+
+<p align="center">
+  <a href="https://github.com/anthonysgro/nanospinner/actions"><img src="https://github.com/anthonysgro/nanospinner/actions/workflows/ci.yml/badge.svg?branch=main" alt="Build Status"></a>
+  <a href="https://crates.io/crates/nanospinner"><img src="https://img.shields.io/crates/v/nanospinner" alt="Crates.io"></a>
+  <a href="https://docs.rs/nanospinner/latest/nanospinner/"><img src="https://docs.rs/nanospinner/badge.svg" alt="Docs.rs"></a>
+  <a href="https://crates.io/crates/nanospinner"><img src="https://img.shields.io/crates/l/nanospinner" alt="License"></a>
+  <a href="https://coveralls.io/github/anthonysgro/nanospinner?branch=main"><img src="https://coveralls.io/repos/github/anthonysgro/nanospinner/badge.svg?branch=main" alt="Coverage Status"></a>
+  <a href="https://www.codefactor.io/repository/github/anthonysgro/nanospinner"><img src="https://www.codefactor.io/repository/github/anthonysgro/nanospinner/badge" alt="CodeFactor"></a>
+</p>
 
 A minimal, zero-dependency terminal spinner for Rust applications. Supports single and multi-spinner modes.
 
