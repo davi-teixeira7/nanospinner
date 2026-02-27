@@ -12,13 +12,6 @@ Part of the [nano](https://github.com/anthonysgro/nano) crate family — zero-de
 
 Most Rust spinner crates sit at two extremes: lightweight but limited (`spinoff`), or feature-rich but heavy (`indicatif`). `nanospinner` sits in the middle: thread-safe handles, multi-spinner support, custom writers, and automatic TTY detection, all with zero dependencies and builds in under .2 seconds. If you need a spinner (not a progress bar), you probably don't need anything else.
 
-
-`nanospinner` solves this by providing the essentials and nothing more:
-
-- Zero external dependencies (only `std`)
-- Simple, ergonomic API
-- Thread-safe with clean shutdown
-
 ## Comparison
 
 | | `nanospinner` | `spinoff` | `indicatif` |
