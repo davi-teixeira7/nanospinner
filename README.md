@@ -28,7 +28,9 @@ Most Rust spinner crates (like `indicatif` or `spinoff`) are feature-rich but pu
 | Customizable Frames | Default Braille set | Yes (80+ sets) | Yes |
 | Multiple Spinners | Yes | No | Yes |
 | Auto TTY Detection | Yes | No | Yes |
+| Custom Writer | Yes (io::Write) | Stderr only | Yes (custom trait) |
 | Progress Bars | No | No | Yes |
+| Async Support | No | No | Optional (`tokio` feature) |
 
 Build times measured from a clean `cargo build --release` on macOS aarch64 (Apple Silicon). Your numbers may vary by platform.
 
